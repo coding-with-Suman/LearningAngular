@@ -62,7 +62,8 @@
               "buildTarget": "MyApp:build:production"
             },
             "development": {
-              "buildTarget": "MyApp:build:development"
+              "buildTarget": "MyApp:build:development",
+              "port": 4203
             }
           },
           "defaultConfiguration": "development"

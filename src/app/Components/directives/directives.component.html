@@ -1,0 +1,193 @@
+<div>
+    <button class="btn btn-success" [routerLink]="['/Home']">Go to Home</button>
+</div>
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>Structural Directives</h1>
+</div>
+<div class="row pt-3">
+    <div class="col-3">
+        <div *ngIf="isVisiableDiv1" class="bg-danger p-3 text-center">
+            <h4>Div 1</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div *ngIf="isToggle" class="bg-success p-3 text-center">
+            <h4>Div 2</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div *ngIf="num1 == num2" class="bg-secondary p-3 text-center">
+            <h4>Div 3</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div *ngIf="SelectedValue != ''" class="bg-primary p-3 text-center">
+            <h4>Div 4</h4>
+        </div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-danger" (click)="FunDiv1(false)" >Hide</button>
+        <button class="btn btn-primary mx-2" (click)="FunDiv1(true)">Show</button>
+    </div>
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="Toggle()">Toggle</button>
+    </div>
+    <div class="col-3">
+        <input type="text" placeholder="Num-1" [(ngModel)]="num1" class="width-50"/>
+        <input type="text" placeholder="Num-2" [(ngModel)]="num2" class="width-50"/>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isChecked">
+        <select [(ngModel)]="SelectedValue" class="form-control">
+            <option value="">Select</option>
+            <option value="India">India</option>
+            <option value="Srilanka">Srilanka</option>
+            <option value="USA">USA</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <select class="form-control">
+            <option value="">Select</option>
+            <option *ngFor="let item of cityArray" [value]="item">{{item}}</option>
+        </select>
+        <ul>
+            <li *ngFor="let item of cityArray">{{item}}</li>
+        </ul>
+    </div>
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <td>sl.no.</td>
+                    <td>Name</td>
+                    <td>City</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of StudentObject; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.city}}</td>
+                    <td>
+                        <span *ngIf="item.isactive">Active</span>
+                        <span *ngIf="!item.isactive">Deactive</span>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+
+<!-- ******************************** Attribute Directives ************************************************ -->
+
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>Attribute Directives</h1>
+</div>
+<div class="row pt-3">
+    <div class="col-3">
+        <div class="p-3 text-center" [ngClass]="div1BgColor">
+            <h4>Div 1</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3 text-center" [ngClass]="isDiv2Actice ?  'bg-success' : 'bg-danger'">
+
+            <h4>Div 2</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3 text-center" [ngClass]="num3 == num4 ? 'bg-success text-primary' : 'bg-danger text-white'">
+            <h4>Div 3</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3 text-center" [ngClass]="isChecked1 ? 'bg-primary' : ''">
+            <h4>Div 4</h4>
+        </div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-danger" (click)="AddRedColor()" >Add Red</button>
+        <button class="btn btn-primary mx-2" (click)="AddBlueColor()">Add Blue</button>
+    </div>
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="ToggleDiv2Color()">Toggle</button>
+    </div>
+    <div class="col-3">
+        <input type="text" placeholder="Num-1" [(ngModel)]="num3" class="width-50"/>
+        <input type="text" placeholder="Num-2" [(ngModel)]="num4" class="width-50"/>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isChecked1">
+        <select [(ngModel)]="SelectedValue" class="form-control">
+            <option value="">Select</option>
+            <option value="India">India</option>
+            <option value="Srilanka">Srilanka</option>
+            <option value="USA">USA</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <select class="form-control">
+            <option value="">Select</option>
+            <option *ngFor="let item of cityArray" [value]="item">{{item}}</option>
+        </select>
+        <ul>
+            <li *ngFor="let item of cityArray">{{item}}</li>
+        </ul>
+    </div>
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <td>sl.no.</td>
+                    <td>Name</td>
+                    <td>City</td>
+                    <td>Status</td>
+                    <td>Marks</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of StudentObjectNew; let i = index" [ngClass]="item.TotalMarks > 50 ? 'bg-success': 'bg-warning'">
+                    <td>{{i+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.city}}</td>
+                    <td [ngStyle]="{'background-color' : item.isactive ? 'green' : 'red'}">
+                        <span>{{item.isactive ? 'Active':'De-Active'}}</span>
+                    </td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{'width':item.TotalMarks+'%'}">{{item.TotalMarks+'%'}}</div>
+                          </div>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+    <div class="col-6">
+        <div [ngStyle]="CustomCssObject">
+            Div Test
+        </div>
+    </div>
+</div>

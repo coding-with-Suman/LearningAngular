@@ -1,0 +1,44 @@
+<button class="btn btn-success" (click)="GotoDirectives()">Go to Directives</button>
+<h3 class="primary-color">home works!</h3>
+<div class="row">
+    <div class="col-4">Add - One way data binding {{CurrentDate}}</div>
+    <div class="col-4">
+        interpolation - {{title}}
+        <div class="row">
+            <div class="col-4">
+                Property binding - 
+                <input type="text" placeholder="Enter text" [value]="title"/>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-4">
+                Event binding - 
+                <button class="btn btn-success" (click)="showAlert('Click ho chuka hai!!')" >Click Me!</button>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-4">Add - two way data binding</div>
+    <div class="col-4">
+        <input type="text" placeholder="Enter text" [(ngModel)]="title"/>
+        <div class="row">
+            <div class="col-4">Name - {{firstName()}}</div>
+            <button class="btn btn-warning" (click)="ChangeName()" >Change Name!</button>
+
+        </div>
+    </div>
+    <div class="col-4">
+        <select  class="form-control" [(ngModel)]="stateName">
+            <option value="">Select</option>
+            <option value="INDIA">INDIA</option>
+            <option value="US">US</option>
+            <option value="ENGLAND">ENGLAND</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    
+</div>

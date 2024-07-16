@@ -1,0 +1,112 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>ControlFlow Statement</h1>
+    <h1>if else</h1>
+</div>
+<div class="row pt-3">
+    <div class="col-3">
+        @if (isDiv1Show) {
+            <div class="bg-danger p-3 text-center">
+                <h4>Div 1</h4>
+            </div>
+        }
+    </div>
+    <div class="col-3">
+        @if (isDiv2Show) {
+            <div class="bg-success p-3 text-center">
+                <h4>Div 2 success</h4>
+            </div>
+        }
+        @else{
+            <div class="bg-warning p-3 text-center">
+                <h4>Div 2 warning</h4>
+            </div>
+        }
+        
+    </div>
+    <div class="col-3">
+        @if (num1 === num2) {
+            <div class="bg-secondary p-3 text-center">
+                <h4>Div 3</h4>
+            </div>
+        }
+        
+    </div>
+    <div class="col-3">
+        <div class="bg-primary p-3 text-center">
+            <h4>
+                @if (SelectedValue == 'Active') {
+                    Student is Active
+                }
+                @else if (SelectedValue == 'DeActive') {
+                    Student is DeActive
+                }
+                @else if (SelectedValue == 'Pending') {
+                    Student is Pending
+                }
+                @else {
+                    Please select Status
+                }
+            </h4>
+        </div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-danger" (click)="HideDiv1()" >Hide</button>
+        <button class="btn btn-primary mx-2" (click)="ShowDiv1()">Show</button>
+    </div>
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="Toggle()">Toggle</button>
+    </div>
+    <div class="col-3">
+        <input type="text" placeholder="Num-1" [(ngModel)]="num1" class="width-50"/>
+        <input type="text" placeholder="Num-2" [(ngModel)]="num2" class="width-50"/>
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="SelectedValue" class="form-control">
+            <option value="">Select Status</option>
+            <option value="Active">Active</option>
+            <option value="DeActive">De-Active</option>
+            <option value="Pending">Pending</option>
+        </select>
+    </div>
+</div>
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h2>For loop</h2>
+</div>
+<div class="row">
+    <div class="col-3">
+        <select class="form-control">
+            <option value="">select city</option>
+            @for (item of cityArray; track $index) {
+                <option [value]="item">{{item}}</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h2>switch case</h2>
+</div>
+<div class="row">
+    <div class="col-3 mt-2 p-2">
+        <input type="text" [(ngModel)]="textInputBox">
+    </div>
+    <div class="col-3 mt-2 p-2">    
+        <div class="bg-primary text-white">
+            @switch (textInputBox) {
+                @case ('1'){
+                    <p>Monday</p>
+                }
+                @case ('2'){
+                    <p>Tuesday</p>
+                }
+                @default {
+                    <p>Invalid</p>
+                }
+               
+            }
+        </div>
+    </div>
+</div>
+
